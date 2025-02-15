@@ -1,0 +1,42 @@
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .right-sec ul {
+        display: none;
+    }
+    .right-sec  {
+        justify-content: flex-end;
+    }
+    .hamburger {
+        margin-right: 18px;
+        width: 40px;
+        height: 40px;
+    }
+    .wave-greeting {
+        font-size: 1.2rem !important;
+        font-weight: 700;
+    }
+    h1 {
+        font-size: 2.2rem !important;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #DEF2F1;
+    }
+    .description-text {
+        margin: 20px 0;
+        font-size: 1.1rem !important;
+        color: black;
+        word-spacing: -2px;
+        line-height: 1.6rem;
+     
+    }
+}
+
+@media (min-width: 768px) and (max-width: 3000px)
+{
+     .hamburger {
+        display: none;
+     }
+}
+
+

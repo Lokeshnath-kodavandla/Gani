@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Video Lightbox</title>
+    <style>
+        /* Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Video Thumbnails Section */
+        .video-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        /* Video Thumbnails */
+        .video-banner {
+            position: relative;
+            width: 45%;
+            max-width: 350px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .video-banner img {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+        }
+
+        /* Play Button */
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .play-button:hover {
+            background: rgba(255, 0, 0, 0.8);
+        }
+
+        /* Lightbox */
+        /* Lightbox Background */
+/* Lightbox Content */
+/* Lightbox Background */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Lightbox Content */
+#lightbox-content {
+    position: relative;
+    width: 70%; /* Further reduce the width to 70% of the screen */
+    max-width: 700px; /* Decrease the maximum width */
+    height: 0;
+    padding-bottom: 56.25%; /* Aspect ratio of 16:9 for videos */
+    background: black;
+    border-radius: 10px;
+    overflow: hidden; /* Ensure content is neatly contained */
+}
+
+/* Video iframe inside the lightbox */
+#lightbox-content iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure the iframe fills the content container */
+    height: 100%; /* Maintain aspect ratio */
+    border-radius: 10px;
+}
+
+/* Close Button - Positioned outside the lightbox content */
+#close-btn {
+    position: absolute; /* Make the button absolute, so it's positioned relative to #lightbox */
+    top: 10px; /* Adjust for the space needed at the top */
+    right: 10px; /* Right side of the screen */
+    color: rgb(216, 20, 20);
+    font-size: 30px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    border-radius: 50%; /* Round the button */
+    width: 40px; /* Set the width */
+    height: 40px; /* Set the height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1010; /* Ensure button is above the lightbox */
+}
+
+/* Close button hover effect */
+#close-btn:hover {
+    background: rgba(255, 0, 0, 0.8);
+}
+
+/* Responsive Styling for smaller screens */
+@media (max-width: 768px) {
+    #lightbox-content {
+        max-width: 600px;
+    }
+
+    #close-btn {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    #lightbox-content {
+        max-width: 400px;
+    }
+
+    #close-btn {
+        font-size: 22px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Video Thumbnails -->
+    <div class="video-section">
+        <div class="video-banner" data-video="https://www.youtube.com/embed/dV6in2jgpQA">
+            <img src="https://img.youtube.com/vi/dV6in2jgpQA/maxresdefault.jpg" alt="Video 1">
+            <div class="play-button">▶</div>
+        </div>
+        <div class="video-banner" data-video="https://www.youtube.com/embed/dV6in2jgpQA">
+            <img src="https://img.youtube.com/vi/dV6in2jgpQA/maxresdefault.jpg" alt="Video 2">
+            <div class="play-button">▶</div>
+        </div>
+        <div class="video-banner" data-video="https://www.youtube.com/embed/dV6in2jgpQA">
+            <img src="https://img.youtube.com/vi/dV6in2jgpQA/maxresdefault.jpg" alt="Video 3">
+            <div class="play-button">▶</div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox">
+        <div id="lightbox-content">
+            <button id="close-btn">✖</button>
+            <iframe id="video-frame" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const videoBanners = document.querySelectorAll(".video-banner");
+            const lightbox = document.getElementById("lightbox");
+            const closeBtn = document.getElementById("close-btn");
+            const videoFrame = document.getElementById("video-frame");
+
+            // Open Lightbox on Thumbnail Click
+            videoBanners.forEach(banner => {
+                banner.addEventListener("click", function () {
+                    const videoURL = banner.getAttribute("data-video") + "?autoplay=1";
+                    videoFrame.src = videoURL;
+                    lightbox.style.display = "flex";
+                });
+            });
+
+            // Close Lightbox on Close Button Click
+            closeBtn.addEventListener("click", function () {
+                lightbox.style.display = "none";
+                videoFrame.src = ""; // Stop video when closed
+            });
+
+            // Close Lightbox when clicking outside the video
+            lightbox.addEventListener("click", function (event) {
+                if (event.target === lightbox) {
+                    lightbox.style.display = "none";
+                    videoFrame.src = ""; // Stop video when closed
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

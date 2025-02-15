@@ -1,0 +1,188 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Landing Page</title>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+     <style>
+         * {
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+             font-family: 'Poppins', sans-serif;
+         }
+         .hero-section {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             min-height: 100vh;
+             background: #2B7A78;
+         }
+         .landing-container {
+             display: flex;
+             align-items: center;
+             justify-content: space-around;
+             width: 90%;
+             max-width: 1200px;
+             background: #3AAFA9;
+             padding: 50px;
+             border-radius: 10px;
+         }
+         .profile-info {
+             max-width: 50%;
+             text-align: left;
+             color: #17252A;
+         }
+         .wave-greeting {
+             font-size: 1.2rem;
+             font-weight: 700;
+         }
+         h1 {
+             font-size: 2.2rem;
+             font-weight: 700;
+             line-height: 1.2;
+             color: #DEF2F1;
+         }
+         .highlight-text {
+             color: #FEFFFF;
+             font-weight: bold;
+         }
+         .description-text {
+             margin: 20px 0;
+             font-size: 1.0rem;
+             color: #DEF2F1;
+             text-align: justify;
+         }
+         .call-to-action {
+             display: inline-block;
+             padding: 14px 28px;
+             background: #17252A;
+             color: white;
+             text-decoration: none;
+             border-radius: 5px;
+             font-size: 1rem;
+             font-weight: 600;
+             margin-top: 20px;
+         }
+         .role-info {
+             font-size: 1.1rem;
+         }
+         .profile-picture {
+             display: flex;
+             align-items: center;
+             justify-content: center;
+         }
+         .profile-picture img {
+             width: 320px;
+             border-radius: 50%;
+         }
+         .typewriter-text {
+             color: black;
+             font-size: 1.5rem;
+             font-family: inherit;
+             text-decoration: none;
+         }
+         @media (max-width: 768px) {
+             .landing-container {
+                 flex-direction: column;
+                 text-align: center;
+                 padding: 40px;
+             }
+             .profile-picture {
+                 order: -1;
+                 margin-bottom: 30px;
+                 margin-left: 0;
+             }
+             .profile-info {
+                 max-width: 100%;
+                 text-align: center;
+             }
+             .profile-picture img {
+                 margin-top: 20px;
+                 width: 250px;
+             }
+         }
+     </style>
+ </head>
+ <body>
+     <div class="hero-section">
+         <section class="landing-container">
+             <div class="profile-picture">
+                 <img src="images/IMG-20241231-WA0181.jpg" alt="Profile Picture">
+             </div>
+             <div class="profile-info">
+                 <p class="wave-greeting">&#x1F44B; Hey</p>
+                 <h1>I'm <span>Ganesh Gopagani</span></h1>
+                 <h2 id="writer">
+                     <a href="" class="typewriter-text" data-period="1800" data-type='[ "I am Video Editor.", "I am Creative.", "I am a Designer."]'>&#x1F44B;
+                       <span class="wrap"></span>
+                     </a>
+                 </h2>
+                 <p class="description-text">I focus on developing user-friendly web applications that meet the client’s requirements, with attention to detail, scalability, and performance.</p>
+                 <a href="#about" class="call-to-action">Hire me</a>
+             </div>
+         </section>
+     </div>
+     
+ </body>
+ <script>
+    /* Type writing java script code */
+var TxtType = function(el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = false;
+};
+
+TxtType.prototype.tick = function() {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
+
+    if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+    var that = this;
+    var delta = 200 - Math.random() * 100;
+
+    if (this.isDeleting) { delta /= 2; }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
+    }
+
+    setTimeout(function() {
+    that.tick();
+    }, delta);
+};
+
+window.onload = function() {
+    var elements = document.getElementsByClassName('typewriter-text');
+    for (var i=0; i<elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-type');
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+          new TxtType(elements[i], JSON.parse(toRotate), period);
+        }
+    }
+    // INJECT CSS
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".typewriter-text > .wrap { border-right: 0.08em solid #fff}";
+    document.body.appendChild(css);
+};
+</script>
+</html>

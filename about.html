@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Timeline</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .timeline li div {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .timeline li:nth-child(1) div { animation-delay: 0.2s; }
+        .timeline li:nth-child(2) div { animation-delay: 0.4s; }
+        .timeline li:nth-child(3) div { animation-delay: 0.6s; }
+        .timeline li:nth-child(4) div { animation-delay: 0.8s; }
+        .timeline li:nth-child(5) div { animation-delay: 1s; }
+    </style>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <section class="relative w-full max-w-4xl py-10">
+        <ul class="relative flex flex-col items-center before:absolute before:top-0 before:bottom-0 before:w-1 before:bg-green-500 before:left-1/2 transform before:-translate-x-1/2">
+            <li class="relative w-full mb-12 flex flex-col items-center sm:flex-row sm:justify-between">
+                <div class="w-8 h-8 bg-green-500 rounded-full absolute left-1/2 transform -translate-x-1/2 sm:translate-x-0 sm:left-[calc(50%-16px)]"></div>
+                <div class="bg-white shadow-lg rounded-lg p-4 w-80 sm:w-96 sm:max-w-[45%] sm:left-0">
+                    <time class="block text-lg font-bold mb-2">2010</time>
+                    Started freelancing and video editing work.
+                </div>
+            </li>
+            <li class="relative w-full mb-12 flex flex-col items-center sm:flex-row sm:justify-between">
+                <div class="w-8 h-8 bg-green-500 rounded-full absolute left-1/2 transform -translate-x-1/2 sm:translate-x-0 sm:left-[calc(50%-16px)]"></div>
+                <div class="bg-white shadow-lg rounded-lg p-4 w-80 sm:w-96 sm:max-w-[45%] sm:right-0">
+                    <time class="block text-lg font-bold mb-2">2012</time>
+                    Joined V News Warangal for news editing.
+                </div>
+            </li>
+            <li class="relative w-full mb-12 flex flex-col items-center sm:flex-row sm:justify-between">
+                <div class="w-8 h-8 bg-green-500 rounded-full absolute left-1/2 transform -translate-x-1/2 sm:translate-x-0 sm:left-[calc(50%-16px)]"></div>
+                <div class="bg-white shadow-lg rounded-lg p-4 w-80 sm:w-96 sm:max-w-[45%] sm:left-0">
+                    <time class="block text-lg font-bold mb-2">2015</time>
+                    Worked on documentary filmmaking, including a travel series.
+                </div>
+            </li>
+            <li class="relative w-full mb-12 flex flex-col items-center sm:flex-row sm:justify-between">
+                <div class="w-8 h-8 bg-green-500 rounded-full absolute left-1/2 transform -translate-x-1/2 sm:translate-x-0 sm:left-[calc(50%-16px)]"></div>
+                <div class="bg-white shadow-lg rounded-lg p-4 w-80 sm:w-96 sm:max-w-[45%] sm:right-0">
+                    <time class="block text-lg font-bold mb-2">2020</time>
+                    Collaborated on various high-profile freelance projects.
+                </div>
+            </li>
+            <li class="relative w-full flex flex-col items-center sm:flex-row sm:justify-between">
+                <div class="w-8 h-8 bg-green-500 rounded-full absolute left-1/2 transform -translate-x-1/2 sm:translate-x-0 sm:left-[calc(50%-16px)]"></div>
+                <div class="bg-white shadow-lg rounded-lg p-4 w-80 sm:w-96 sm:max-w-[45%] sm:left-0">
+                    <time class="block text-lg font-bold mb-2">2023</time>
+                    Graduated from FTIH Film School with a Diploma in Film Editing.
+                </div>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>

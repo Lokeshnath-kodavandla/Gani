@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer Animation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fafafa;
+    }
+
+    svg {
+      width: 100vw;
+    }
+
+    footer {
+      width: 100vw;
+      bottom: 0;
+      position: absolute;
+      left: 0;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 3rem;
+      justify-content: center;
+      padding-bottom: 1.5rem
+    }
+
+    footer h1 {
+      z-index: 2;
+      color: white;
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: lighter;
+      font-size: calc(2vmin + 8px);
+    }
+
+    footer h1 span {
+      font-weight: bold;
+      color: #FFA036;
+      text-shadow: 0 0 15px rgba(255, 160, 54, .4);
+    }
+
+    .gooey-animations {
+      overflow: hidden;
+      position: absolute;
+      width: 100vw;
+      height: 250px;
+      bottom: 0;
+      filter: url('#goo');
+    }
+
+    .gooey-animations::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      clip-path: url('#wave');
+      background-color: #000;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .gooey-animations::after {
+        clip-path: none;
+        height: 100px;
+      }
+    }
+
+    .ball {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #28323B;
+      position: absolute;
+      animation: up 5s cubic-bezier(0.18, 0.89, 0.32, 1.28) infinite;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .ball {
+        animation: up-small 4s cubic-bezier(0.18, 0.89, 0.32, 1.28) infinite;
+      }
+    }
+
+    @keyframes up {
+      0% {
+        bottom: 0px;
+        width: 100px;
+        height: 100px;
+      }
+      50% {
+        bottom: 200px;
+      }
+      100% {
+        bottom: 0px;
+        width: 0px;
+        height: 0px;
+      }
+    }
+
+    @keyframes up-small {
+      0% {
+        bottom: 0px;
+        width: 100px;
+        height: 100px;
+      }
+      50% {
+        bottom: 150px;
+      }
+      100% {
+        bottom: 0px;
+        width: 0px;
+        height: 0px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <footer>
+    <div class="gooey-animations"></div>
+    <h1>This footer was made by <span>Lokeshnath.</span></h1>
+  </footer>
+
+   
+
+  <script>
+    function generateBalls() {
+      for (var i = 0; i < Math.floor(window.innerWidth/20); i++) {
+        var colors = ['#7c68ff','#47f59c','#effb88','#ff2c76'];
+        var ball = document.createElement('div');
+        ball.classList.add('ball');
+        document.querySelector(".gooey-animations").appendChild(ball);
+
+        ball.style.bottom = "0px";
+        ball.style.left = Math.random() * window.innerWidth - 100 + 'px';
+        ball.style.animationDelay = Math.random() * 5 + "s";
+        ball.style.transform = "translateY(" + Math.random() * 10 + "px)";
+        ball.style.backgroundColor = colors[i % 4];
+      }
+    }
+
+    generateBalls();
+
+    window.addEventListener('resize', function() {
+      var balls = document.querySelectorAll(".gooey-animations .ball");
+      balls.forEach(ball => ball.remove());
+      generateBalls();
+    });
+  </script>
+</body>
+</html>

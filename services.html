@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Section</title>
+    <style>
+       
+
+        #services {
+            padding: 60px 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .service-box {
+            width: 300px;
+            background-color: #2B7A78;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .service-box img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .service-box h3 {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .service-box p {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #E0E0E0;
+        }
+
+        button {
+            margin-top: 15px;
+            background-color: #17252A;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: rgba(23, 37, 42, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="services-container">
+            <!-- Video Editing -->
+            <div class="service-box">
+                <img src="images/montage.png" alt="YouTube Logo">
+                <h3>Video Editing</h3>
+                <p>Custom edits for YouTube, vlogs, and social media with stunning transitions, color grading, and more.</p>
+                <button>Read more</button>
+            </div>
+
+            <!-- Motion Graphics -->
+            <div class="service-box">
+                <img src="images/motion-graphic.png" alt="Motion Graphics">
+                <h3>Motion Graphics</h3>
+                <p>Bring your videos to life with 2D/3D animations, logo design, and other visual effects.</p>
+                <button>Read more</button>
+            </div>
+
+            <!-- Color Grading -->
+            <div class="service-box">
+                <img src="images/painting.png" alt="Color Grading">
+                <h3>Color Grading</h3>
+                <p>Enhance your footage's visual mood with cinematic color correction and grading techniques.</p>
+                <button>Read more</button>
+            </div>
+
+            <!-- Audio Editing -->
+            <div class="service-box">
+                <img src="images/audio.png" alt="Audio Editing">
+                <h3>Audio Editing & Mixing</h3>
+                <p>Clean up audio, add sound effects, and perfect background music for your videos.</p>
+                <button>Read more</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+

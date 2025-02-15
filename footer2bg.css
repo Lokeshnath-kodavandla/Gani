@@ -1,0 +1,13 @@
+.footer-heading {
+  text-decoration: underline;
+}
+
+/* Arrow animation for specific links */
+.arrow-link::before {
+  content: "\279E"; /* Unicode for right arrow */
+  margin-right: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+.arrow-link:hover::before {
+  transform: translateX(4px);
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing</title>
+</head>
+<style>
+    /* .photo-container {
+        width: 400px;
+        height: 400px;
+        background-color: black;
+        position: relative;
+    }
+    .photo-div {
+        width: 400px;
+        height: 400px;
+        background-color: red;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .gani-id {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 6px;
+    }
+    .photo-container:hover {
+    
+        .gani-id {
+            border-radius: 50%;
+        }
+        .photo-div {
+            top: 0;
+            left: 0;
+        }
+    } */
+    /* .photo-container {
+        width: 350px;
+        height: 350px;
+        background-color: black;
+        position: relative;
+        border-radius: 8px;
+    }
+
+        .photo-div {
+            width: 350px;
+            height: 350px;
+            background-color: red;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: top 0.3s ease-in-out, left 0.3s ease-in-out;
+            border-radius: 8px;
+        }
+
+        .gani-id {
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 6px;
+            transition: border-radius 0.3s ease-in-out;
+        }
+
+        .photo-container:hover {
+            .gani-id {
+                border-radius: 50%;
+            }
+            .photo-div {
+                top: 0;
+                left: 0;
+            }
+        }
+        .profile-content {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .profile-content h5 {
+            font-size: 18px;
+            color: #555;
+            margin: 0;
+        }
+
+        .profile-content h3 {
+            font-size: 24px;
+            color: #222;
+            margin: 5px 0;
+        }
+
+        .profile-content p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        .main-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(1, 1fr);
+            gap: 4px;
+        }
+        
+        
+        @media screen and (max-width: 768px) {
+            .main-container {
+                grid-template-rows: repeat(2, 1fr);
+                grid-template-columns: repeat(1, 1fr);
+            }
+        } */
+
+        body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .main-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 100px;
+                max-width: 810px;
+                width: 100%;
+                padding: 5px;
+                margin: 2px;
+            }
+
+            .photo-container {
+                width: 350px;
+                height: 350px;
+                background-color: black;
+                position: relative;
+                border-radius: 8px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .photo-div {
+                width: 350px;
+                height: 350px;
+                background-color: red;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: top 0.3s ease-in-out, left 0.3s ease-in-out;
+                border-radius: 8px;
+            }
+
+            .gani-id {
+                width: 300px;
+                height: 300px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 6px;
+                transition: border-radius 0.3s ease-in-out;
+            }
+
+            .photo-container:hover .gani-id {
+                border-radius: 50%;
+            }
+
+            .photo-container:hover .photo-div {
+                top: 0;
+                left: 0;
+            }
+
+            .profile-content {
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+                max-width: 350px;
+                width: 100%;
+            }
+            .profile-content h5 {
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 2.2rem;
+                margin-top: -10px;
+            }
+            .profile-content h3 {
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                margin-top: -30px;
+                text-align: start;
+                margin-left: 26px;
+                font-size: 1.3rem;
+            }
+            .text-container {
+                font-size: 1.1rem;
+                text-align: justify;
+                text-justify: inter-word;
+                margin-left: 24px;
+            }
+
+            /* Media Query */
+            @media screen and (max-width: 768px) {
+                .main-container {
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+
+
+</style>
+<body>
+    <div class="main-container">
+        <div class="photo-container">
+            <div class="photo-div">
+                <img src="images/IMG-20241231-WA0181.jpg" alt="Ganesh" class="gani-id">
+            </div>
+        </div>
+        <div class="profile-content">
+            <h5>Ganesh Gopagani</h5>
+            <h3>Video Editor</h3>
+            <div class="text-container">
+                <p>Crafting stories through seamless edits and captivating visuals. Experienced in transforming raw footage into compelling narratives for brands and creators. Dedicated to delivering professional, polished content that connects with audiences.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
